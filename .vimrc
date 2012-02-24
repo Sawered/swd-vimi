@@ -155,6 +155,7 @@
     set shortmess+=I        " не показывать intro screen
     set mouseshape=s:udsizing,m:no " turn to a sizing arrow over the status lines
     set mousehide " Hide the mouse when typing text
+    set modeline
 
     set hidden " this allows to edit several files in the same time without having to save them
 
@@ -542,8 +543,8 @@
         set backspace=indent,eol,start
 
     " Backup и swp файлы
-        set backupdir=~/.vimi/bac//,/tmp " Директория для backup файлов
-        set directory=~/.vimi/swp//,/tmp " Директория для swp файлов
+        "set backupdir=~/.vimi/bac//,/tmp " Директория для backup файлов
+        "set directory=~/.vimi/swp//,/tmp " Директория для swp файлов
 
     " Загрузка предыдущей сессии
         set viminfo='10,\"100,:20,%,n~/.viminfo
@@ -571,7 +572,7 @@
 
     " Актуально только для MacVim
         " Save on losing focus
-            autocmd FocusLost * :wa
+            "autocmd FocusLost * :wa
 
         " Resize splits when the window is resized
             au VimResized * exe "normal! \<c-w>="
@@ -603,10 +604,10 @@
         let NERDTreeShowBookmarks=1
         let NERDTreeChDirMode=2
         let NERDTreeQuitOnOpen=1
-        let NERDTreeShowHidden=1
+        "let NERDTreeShowHidden=1
         let NERDTreeKeepTreeInNewTab=0
         let NERDTreeMinimalUI=1 " Disables display of the 'Bookmarks' label and 'Press ? for help' text.
-        let NERDTreeDirArrows=1 " Tells the NERD tree to use arrows instead of + ~ chars when displaying directories.
+        "let NERDTreeDirArrows=1 " Tells the NERD tree to use arrows instead of + ~ chars when displaying directories.
         let NERDTreeBookmarksFile= $HOME . '/.vim/.NERDTreeBookmarks'
 
     " Zen Coding
@@ -630,3 +631,28 @@
 
     " VimWiki
         let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/'}]
+
+function! <SID>StripTrailingWhitespaces()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+autocmd BufWritePre *.py,*.js,*.php,*.sql,*.css :call <SID>StripTrailingWhitespaces()
+au BufNewFile,BufRead *.html.twig set filetype=htmltwig
+
+let snips_author = 'skoryukin'
+colorscheme desertEx
+set number
+let php_folding=1
+set foldlevel=1
+set foldcolumn=2
+set foldenable
+set mouse=""
+set mousemodel=extend
+au BufNewFile,BufRead *.html.twig set filetype=htmltwig
