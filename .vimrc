@@ -59,6 +59,7 @@
         "Bundle 'git://github.com/tyru/operator-html-escape.vim.git'
         Bundle 'git://github.com/tpope/vim-haml.git'
         Bundle 'git://github.com/gregsexton/MatchTag.git'
+        Bundle 'git://github.com/beyondwords/vim-twig.git'
     " CSS/LESS
         Bundle 'git://github.com/hail2u/vim-css3-syntax.git'
         Bundle 'git://github.com/ap/vim-css-color.git'
