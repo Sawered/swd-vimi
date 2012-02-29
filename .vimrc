@@ -148,9 +148,10 @@
     set linespace=1         " add some line space for easy reading
     set cursorline          " Подсветка строки, в которой находится в данный момент курсор
     set gcr=n:blinkon0      " Отключаем мигание курсора в MacVim. Больше никакого стресса.
-    set guioptions=         " Вырубаем все лишнее из ГУИ, если надо потогглить см <F6>
+    "set guioptions=         " Вырубаем все лишнее из ГУИ, если надо потогглить см <F6>
+    set guioptions=aegi
     set t_Co=256            " Кол-во цветов
-    set guicursor=          " Отключаем мигание курсора
+    "set guicursor=          " Отключаем мигание курсора
     set splitbelow          " новый сплит будет ниже текущего :sp
     set splitright          " новый сплит будет правее текущего :vsp
     set shortmess+=I        " не показывать intro screen
@@ -477,7 +478,7 @@
         vnoremap <silent> <Leader>c :s/\v\C(([a-z]+)([A-Z]))/\2_\l\3/g<CR>
 
     " Double space to ". "
-        imap <Space><Space> . 
+        "imap <Space><Space> . 
 
     " Fix Trailing White Space
         map <leader>ts :%s/\s\+$//e<CR>
@@ -569,7 +570,7 @@
         "     \ execute "source " . $HOME . "/.vim/Session.vim"
 
     " Auto change the directory to the current file I'm working on
-        autocmd BufEnter * lcd %:p:h
+        "autocmd BufEnter * lcd %:p:h
 
     " Актуально только для MacVim
         " Save on losing focus
