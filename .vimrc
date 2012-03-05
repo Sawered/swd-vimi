@@ -24,7 +24,7 @@
     " Interface
         Bundle 'git://github.com/altercation/vim-colors-solarized.git'
         Bundle 'git://github.com/scrooloose/nerdtree.git'
-        Bundle 'git://github.com/ervandew/supertab.git'
+        "Bundle 'git://github.com/ervandew/supertab.git'
         "Bundle 'git://github.com/wincent/Command-T.git'
         "Bundle 'git://github.com/vim-scripts/taglist.vim.git'
         " depends: http://ctags.sourceforge.net/
@@ -47,7 +47,7 @@
         Bundle 'git://github.com/sjl/threesome.vim.git'
         "Bundle 'git://github.com/chrismetcalf/vim-yankring.git'
         "Bundle 'git://github.com/slack/vim-fuzzyfinder.git'
-        Bundle 'git://github.com/vim-scripts/vimwiki.git'
+        "Bundle 'git://github.com/vim-scripts/vimwiki.git'
     " Lua
         "Bundle 'git://github.com/vim-scripts/lua.vim.git'
         "Bundle 'git://github.com/rkowal/Lua-Omni-Vim-Completion.git'
@@ -390,14 +390,14 @@
 
     " Disable <Arrow keys>
         " Warning: nightmare mode!
-        inoremap <Up> <NOP>
-        inoremap <Down> <NOP>
-        inoremap <Left> <NOP>
-        inoremap <Right> <NOP>
-        noremap <Up> <NOP>
-        noremap <Down> <NOP>
-        noremap <Left> <NOP>
-        noremap <Right> <NOP>
+        "inoremap <Up> <NOP>
+        "inoremap <Down> <NOP>
+        "inoremap <Left> <NOP>
+        "inoremap <Right> <NOP>
+        "noremap <Up> <NOP>
+        "noremap <Down> <NOP>
+        "noremap <Left> <NOP>
+        "noremap <Right> <NOP>
         " Позволяем передвигаться с помощью hjkl в Insert mode зажав <Ctrl>
         imap <C-h> <C-o>h
         imap <C-j> <C-o>j
@@ -523,9 +523,9 @@
 
     " {<CR>
         " auto complete {} indent and position the cursor in the middle line
-        inoremap {<CR> {<CR>}<Esc>O
-        inoremap (<CR> (<CR>)<Esc>O
-        inoremap [<CR> [<CR>]<Esc>O
+        "inoremap {<CR> {<CR>}<Esc>O
+        "inoremap (<CR> (<CR>)<Esc>O
+        "inoremap [<CR> [<CR>]<Esc>O
 
     " Fold with space
         nnoremap <CR> za
