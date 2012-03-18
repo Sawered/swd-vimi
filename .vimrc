@@ -530,6 +530,8 @@
     " Fold with space
         nnoremap <CR> za
         vnoremap <CR> zf
+    " ,d current dir
+        map <Leader>d :NERDTree %:p:h<CR>
 
 
 " Environment
