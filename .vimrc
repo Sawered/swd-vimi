@@ -533,6 +533,11 @@
     " ,d current dir
         map <Leader>d :NERDTree %:p:h<CR>
 
+    " ,tt show tabs
+        map <Leader>tt :tabs<CR>
+    " ,t go tab
+        map <Leader>t :tabn
+
 
 " Environment
     set history=1000 " store lots of :cmdline history
