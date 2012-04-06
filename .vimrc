@@ -62,9 +62,9 @@
         Bundle 'git://github.com/beyondwords/vim-twig.git'
     " CSS/LESS
         Bundle 'git://github.com/hail2u/vim-css3-syntax.git'
-        Bundle 'git://github.com/ap/vim-css-color.git'
+        "Bundle 'git://github.com/ap/vim-css-color.git'
         Bundle 'git://github.com/groenewege/vim-less.git'
-        Bundle 'git://github.com/miripiruni/vim-better-css-indent.git'
+        "Bundle 'git://github.com/miripiruni/vim-better-css-indent.git'
         Bundle 'git://github.com/miripiruni/CSScomb-for-Vim.git'
     " JavaScript
         Bundle 'git://github.com/pangloss/vim-javascript.git'
@@ -84,6 +84,8 @@
         "Bundle 'git://github.com/vim-ruby/vim-ruby.git'
         "Bundle 'git://github.com/tpope/vim-rails.git'
         "Bundle 'git://github.com/tpope/vim-endwise.git'
+
+        Bundle 'git://github.com/sickill/vim-pasta.git'
 
     filetype plugin indent on     " required!
     " Brief help
@@ -138,7 +140,7 @@
     end
     set textwidth=80
     set formatoptions-=o    " dont continue comments when pushing o/O
-    set linebreak           " Перенос не разрывая слов
+    "set linebreak           " Перенос не разрывая слов
     set autoindent          " Копирует отступ от предыдущей строки
     set smartindent         " Включаем 'умную' автоматическую расстановку отступов
     set expandtab
@@ -610,8 +612,8 @@
 
     " NERDTree
         nmap <Bs> :NERDTreeToggle<CR>
-        let NERDTreeShowBookmarks=1
-        let NERDTreeChDirMode=2
+        let NERDTreeShowBookmarks=0
+        let NERDTreeChDirMode=0
         let NERDTreeQuitOnOpen=1
         "let NERDTreeShowHidden=1
         let NERDTreeKeepTreeInNewTab=0
@@ -653,7 +655,6 @@ function! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfunction
 autocmd BufWritePre *.py,*.js,*.php,*.sql,*.css :call <SID>StripTrailingWhitespaces()
-au BufNewFile,BufRead *.html.twig set filetype=htmltwig
 
 let snips_author = 'skoryukin'
 colorscheme desertEx
