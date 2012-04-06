@@ -54,7 +54,8 @@
         "Bundle 'git://github.com/xolox/vim-lua-ftplugin.git'
         "Bundle 'git://github.com/xolox/vim-lua-inspect.git'
     " HTML/HAML
-        Bundle 'git://github.com/othree/html5.vim.git'
+        Bundle 'git://github.com/xenoterracide/html.vim.git'
+        "Bundle 'git://github.com/othree/html5.vim.git'
         Bundle 'git://github.com/hokaccha/vim-html5validator.git'
         "Bundle 'git://github.com/tyru/operator-html-escape.vim.git'
         Bundle 'git://github.com/tpope/vim-haml.git'
@@ -665,4 +666,4 @@ set foldcolumn=2
 set foldenable
 set mouse=""
 set mousemodel=extend
-au BufNewFile,BufRead *.html.twig set filetype=htmltwig
+"au BufNewFile,BufRead *.html.twig set filetype=htmltwig
