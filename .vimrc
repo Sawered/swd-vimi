@@ -559,7 +559,7 @@
         "set directory=~/.vimi/swp//,/tmp " Директория для swp файлов
 
     " Загрузка предыдущей сессии
-        set viminfo='10,\"100,:20,%,n~/.viminfo
+        set viminfo='10,\"100,:20,n~/.viminfo
         " Устанавливаем курсор в файле на место, где он был при закрытии этого файла
         au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
