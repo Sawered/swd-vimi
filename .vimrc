@@ -65,7 +65,7 @@
         Bundle 'git://github.com/hail2u/vim-css3-syntax.git'
         "Bundle 'git://github.com/ap/vim-css-color.git'
         Bundle 'git://github.com/groenewege/vim-less.git'
-        "Bundle 'git://github.com/miripiruni/vim-better-css-indent.git'
+        Bundle 'git://github.com/miripiruni/vim-better-css-indent.git'
         Bundle 'git://github.com/miripiruni/CSScomb-for-Vim.git'
     " JavaScript
         Bundle 'git://github.com/pangloss/vim-javascript.git'
@@ -139,7 +139,7 @@
     if version >= 703
         set colorcolumn=80 " Подсвечиваем 80 столбец
     end
-    set textwidth=80
+    "set textwidth=80
     set formatoptions-=o    " dont continue comments when pushing o/O
     "set linebreak           " Перенос не разрывая слов
     set autoindent          " Копирует отступ от предыдущей строки
@@ -655,7 +655,7 @@ function! <SID>StripTrailingWhitespaces()
     let @/=_s
     call cursor(l, c)
 endfunction
-autocmd BufWritePre *.py,*.js,*.php,*.sql,*.css :call <SID>StripTrailingWhitespaces()
+autocmd BufWritePre *.py,*.js,*.php,*.sql,*.css,*.less :call <SID>StripTrailingWhitespaces()
 
 let snips_author = 'skoryukin'
 colorscheme desertEx
