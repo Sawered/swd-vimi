@@ -21,6 +21,7 @@
     " Libs
         " For FuzzyFinder:
         "Bundle 'L9'
+        Bundle 'https://github.com/kien/ctrlp.vim.git'
     " Interface
         Bundle 'git://github.com/altercation/vim-colors-solarized.git'
         Bundle 'git://github.com/scrooloose/nerdtree.git'
@@ -48,6 +49,7 @@
         "Bundle 'git://github.com/chrismetcalf/vim-yankring.git'
         "Bundle 'git://github.com/slack/vim-fuzzyfinder.git'
         "Bundle 'git://github.com/vim-scripts/vimwiki.git'
+        Bundle 'git://github.com/Lokaltog/vim-powerline.git'
     " Lua
         "Bundle 'git://github.com/vim-scripts/lua.vim.git'
         "Bundle 'git://github.com/rkowal/Lua-Omni-Vim-Completion.git'
@@ -216,7 +218,6 @@
         set statusline+=\ \ %{FileSize()}
         set statusline+=%<                   " where truncate if line too long
         set statusline+=\ \ CurDir:%{CurDir()}
-
 
 
 
