@@ -21,7 +21,10 @@
     " Libs
         " For FuzzyFinder:
         "Bundle 'L9'
+        "Bundle 'Tagbar'
         Bundle 'https://github.com/kien/ctrlp.vim.git'
+        Bundle 'DirDiff.vim'
+        Bundle 'vimtabs.vim'
     " Interface
         Bundle 'git://github.com/altercation/vim-colors-solarized.git'
         Bundle 'git://github.com/scrooloose/nerdtree.git'
@@ -38,18 +41,22 @@
         Bundle 'git://github.com/miripiruni/vimi-snippets.git'
         Bundle 'git://github.com/mileszs/ack.vim.git'
         Bundle 'git://github.com/scrooloose/nerdcommenter.git'
-        "Bundle 'git://github.com/tpope/vim-surround.git'
+        Bundle 'git://github.com/tpope/vim-surround.git'
         "Bundle 'git://github.com/tpope/vim-fugitive.git'
         "Bundle 'git://github.com/tsaleh/vim-align.git'
         "Bundle 'git://github.com/vim-scripts/bufexplorer.zip.git'
         "Bundle 'git://github.com/vim-scripts/delimitMate.vim.git'
         "Bundle 'git://github.com/sjl/gundo.vim.git'
         "Bundle 'git://github.com/edsono/vim-matchit.git'
+        " now called splice
         Bundle 'git://github.com/sjl/threesome.vim.git'
         "Bundle 'git://github.com/chrismetcalf/vim-yankring.git'
         "Bundle 'git://github.com/slack/vim-fuzzyfinder.git'
         "Bundle 'git://github.com/vim-scripts/vimwiki.git'
         Bundle 'git://github.com/Lokaltog/vim-powerline.git'
+    " Colorscheme
+
+        Bundle 'Wombat'
     " Lua
         "Bundle 'git://github.com/vim-scripts/lua.vim.git'
         "Bundle 'git://github.com/rkowal/Lua-Omni-Vim-Completion.git'
@@ -645,6 +652,9 @@
 
     " VimWiki
         let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/'}]
+
+    " Tagbar
+        "nmap <F8> :TagbarToggle<CR>
 
 function! <SID>StripTrailingWhitespaces()
     " Preparation: save last search, and cursor position.
