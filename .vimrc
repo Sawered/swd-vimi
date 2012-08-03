@@ -63,6 +63,7 @@
         Bundle 'git://github.com/tpope/vim-haml.git'
         Bundle 'git://github.com/gregsexton/MatchTag.git'
         Bundle 'git://github.com/beyondwords/vim-twig.git'
+        Bundle 'git://github.com/timcharper/textile.vim.git'
     " CSS/LESS
         Bundle 'git://github.com/hail2u/vim-css3-syntax.git'
         "Bundle 'git://github.com/ap/vim-css-color.git'
