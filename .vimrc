@@ -162,7 +162,7 @@
     set cursorline          " Подсветка строки, в которой находится в данный момент курсор
     set gcr=n:blinkon0      " Отключаем мигание курсора в MacVim. Больше никакого стресса.
     "set guioptions=         " Вырубаем все лишнее из ГУИ, если надо потогглить см <F6>
-    set guioptions=aegi
+    set guioptions=agi
     set t_Co=256            " Кол-во цветов
     "set guicursor=          " Отключаем мигание курсора
     set splitbelow          " новый сплит будет ниже текущего :sp
