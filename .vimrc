@@ -655,6 +655,10 @@
 
     " Tagbar
         "nmap <F8> :TagbarToggle<CR>
+    " CTRL-P
+        let g:ctrlp_custom_ignore = {
+          \ 'dir':  '\v[\/](\.git|\.hg|\.svn|app\/cache)$',
+          \ }
 
 function! <SID>StripTrailingWhitespaces()
     " Preparation: save last search, and cursor position.
