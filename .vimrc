@@ -605,20 +605,20 @@
 " Плагины
 
     " Solarized
-        syntax enable
-        let g:solarized_termcolors=256
-        set background=dark
-        try
-            colorscheme solarized
-        catch /^Vim\%((\a\+)\)\=:E185/
-            echo "Solarized theme not found. Run :BundleInstall"
-        endtry
+    "    syntax enable
+    "    let g:solarized_termcolors=256
+    "    set background=dark
+    "    try
+    "        colorscheme solarized
+    "    catch /^Vim\%((\a\+)\)\=:E185/
+    "        echo "Solarized theme not found. Run :BundleInstall"
+    "    endtry
 
-        try
-            call togglebg#map("<Leader>b")
-        catch /^Vim\%((\a\+)\)\=:E117/
-            " :(
-        endtry
+    "    try
+    "        call togglebg#map("<Leader>b")
+    "    catch /^Vim\%((\a\+)\)\=:E117/
+    "        " :(
+    "    endtry
 
     " NERDTree
         nmap <Bs> :NERDTreeToggle<CR>
