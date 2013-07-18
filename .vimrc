@@ -39,7 +39,7 @@
         "Bundle 'git://github.com/vim-scripts/UltiSnips.git'
         Bundle 'git://github.com/msanders/snipmate.vim.git'
         Bundle 'git://github.com/miripiruni/vimi-snippets.git'
-        Bundle 'git://github.com/mileszs/ack.vim.git'
+        "Bundle 'git://github.com/mileszs/ack.vim.git'
         Bundle 'git://github.com/scrooloose/nerdcommenter.git'
         Bundle 'git://github.com/tpope/vim-surround.git'
         "Bundle 'git://github.com/tpope/vim-fugitive.git'
@@ -97,6 +97,7 @@
         "Bundle 'git://github.com/tpope/vim-endwise.git'
 
         Bundle 'git://github.com/sickill/vim-pasta.git'
+        Bundle 'git://github.com/scrooloose/syntastic.git'
 
     filetype plugin indent on     " required!
     " Brief help
@@ -659,6 +660,10 @@
         let g:ctrlp_custom_ignore = {
           \ 'dir':  '\v[\/](\.git|\.hg|\.svn|app\/cache)$',
           \ }
+    "Sybtastic
+        let g:syntastic_enable_signs=1
+        "highlight SyntasticErrorSign guifg=white guibg=red
+
 
 function! <SID>StripTrailingWhitespaces()
     " Preparation: save last search, and cursor position.
@@ -672,6 +677,7 @@ function! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfunction
 autocmd BufWritePre *.py,*.js,*.php,*.sql,*.css,*.less :call <SID>StripTrailingWhitespaces()
+au BufNewFile,BufRead *.gradle setf groovy
 
 let snips_author = 'skoryukin'
 colorscheme desertEx
