@@ -77,6 +77,7 @@ set nocompatible
 
     " Colorscheme
 
+        Bundle 'https://github.com/mbbill/desertEx'
         Bundle 'Wombat'
 
         Bundle "daylerees/colour-schemes", { "rtp": "vim/" }
