@@ -57,6 +57,14 @@
     " Colorscheme
 
         Bundle 'Wombat'
+
+
+        Bundle 'git://github.com/morhetz/gruvbox.git'
+        Bundle 'git://github.com/zeis/vim-kolor.git'
+        Bundle 'git://github.com/29decibel/codeschool-vim-theme.git'
+        Bundle 'git://github.com/jpo/vim-railscasts-theme.git'
+        "Bundle 'git://github.com/goatslacker/mango.vim.git'
+        Bundle 'git://github.com/nanotech/jellybeans.vim.git'
     " Lua
         "Bundle 'git://github.com/vim-scripts/lua.vim.git'
         "Bundle 'git://github.com/rkowal/Lua-Omni-Vim-Completion.git'
@@ -95,6 +103,8 @@
         "Bundle 'git://github.com/vim-ruby/vim-ruby.git'
         "Bundle 'git://github.com/tpope/vim-rails.git'
         "Bundle 'git://github.com/tpope/vim-endwise.git'
+
+        Bundle 'Markdown-syntax'
 
         Bundle 'git://github.com/sickill/vim-pasta.git'
         Bundle 'git://github.com/scrooloose/syntastic.git'
@@ -678,6 +688,7 @@ function! <SID>StripTrailingWhitespaces()
 endfunction
 autocmd BufWritePre *.py,*.js,*.php,*.sql,*.css,*.less :call <SID>StripTrailingWhitespaces()
 au BufNewFile,BufRead *.gradle setf groovy
+au BufNewFile,BufRead,BufReadPre *.md setf markdown
 
 let snips_author = 'skoryukin'
 colorscheme desertEx
