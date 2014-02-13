@@ -109,6 +109,9 @@
         Bundle 'git://github.com/sickill/vim-pasta.git'
         Bundle 'git://github.com/scrooloose/syntastic.git'
 
+        Bundle 'git://github.com/vim-scripts/groovy.vim.git'
+        Bundle 'git://github.com/martintreurnicht/vim-gradle.git'
+
     filetype plugin indent on     " required!
     " Brief help
     " :BundleList          - list configured bundles
