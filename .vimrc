@@ -58,6 +58,7 @@
 
         Bundle 'Wombat'
 
+        Bundle "daylerees/colour-schemes", { "rtp": "vim/" }
 
         Bundle 'git://github.com/morhetz/gruvbox.git'
         Bundle 'git://github.com/zeis/vim-kolor.git'
@@ -564,6 +565,8 @@
     " ,t go tab
         map <Leader>t :tabn
 
+    " ,q close window
+        map <Leader>q :q<CR>
 
 " Environment
     set history=1000 " store lots of :cmdline history
