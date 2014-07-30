@@ -59,6 +59,7 @@
         Bundle 'Wombat'
 
         Bundle "daylerees/colour-schemes", { "rtp": "vim/" }
+        " preview http://daylerees.github.io/
 
         Bundle 'git://github.com/morhetz/gruvbox.git'
         Bundle 'git://github.com/zeis/vim-kolor.git'
@@ -112,6 +113,9 @@
 
         Bundle 'git://github.com/vim-scripts/groovy.vim.git'
         Bundle 'git://github.com/martintreurnicht/vim-gradle.git'
+
+    " Yaml
+       Bundle  'git://github.com/stephpy/vim-yaml.git'
 
     filetype plugin indent on     " required!
     " Brief help
@@ -352,7 +356,7 @@
     " ,p
         " Вставлять код извне без этой строчки проблематично, без нее начитается
         " бешеный реформат кода
-        set pastetoggle=<Leader>p
+        "set pastetoggle=<Leader>p
 
 
     " ,nm
@@ -697,7 +701,15 @@ au BufNewFile,BufRead *.gradle setf groovy
 au BufNewFile,BufRead,BufReadPre *.md setf markdown
 
 let snips_author = 'skoryukin'
-colorscheme desertEx
+colorscheme jellybeans
+" laravel
+" peacock
+" halflife 
+" juicy
+" zacks
+" hyrule
+" jellybeans
+" gruvbox
 set number
 let php_folding=1
 set foldlevel=1
@@ -706,3 +718,14 @@ set foldenable
 set mouse=""
 set mousemodel=extend
 "au BufNewFile,BufRead *.html.twig set filetype=htmltwig
+let g:jellybeans_overrides = {
+\    'Todo': { 'guifg': '303030', 'guibg': 'f0f000',
+\              'ctermfg': 'Black', 'ctermbg': 'Yellow',
+\              'attr': 'bold' },
+\}
+
+"stop parenthesis matching (it fix slow cursor)
+let loaded_matchparent=1
+" Disable Ex-mode
+map Q <Nop>
+
