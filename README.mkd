@@ -15,14 +15,14 @@ Recommend:
 * [Vim](http://vim.org/)
 
 
-How to install Vimi setup
+How to install Vimi
 --------------
 
-1. Delete or move current ~/.vim и ~/.vimrc
-2. `cd ~; git clone git://github.com/miripiruni/vimi.git .vimi && ln -s .vimi/.vimrc .vimrc && ln -s .vimi/.vim .vim`
-3. `git clone git://github.com/gmarik/vundle.git ~/.vimi/.vim/bundle/vundle`
-4. Start Vim and type `:BundleInstall`
-5. Restart vim
+Just copy to your console:
+
+```
+$ git clone git://github.com/miripiruni/vimi.git ~/.vimi && cd ~/.vimi && make
+```
 
 
 Screenshot
@@ -110,6 +110,9 @@ Move lines:
 
 Горячие кнопки
 --------
+
+![CheatSheet](http://miripiruni.org/i/vimi-cheat-sheet-2012-02-18.png)
+
 
 Я придерживаюсь принципиального правила ничего не мапить на F-клавиши. Во-первых, у меня
 на маке они заняты, во-вторых, они слишком далеко. Все мапы в основном через `<Leader>`, который по обыкновению кнопка `,`.
