@@ -35,7 +35,7 @@ set nocompatible
         " A tree explorer plugin
         Bundle 'git://github.com/scrooloose/nerdtree.git'
         " Perform all your vim insert mode completions with Tab
-        Bundle 'git://github.com/ervandew/supertab.git'
+        " Bundle 'git://github.com/ervandew/supertab.git'
         " Command-T
         " Bundle 'git://github.com/wincent/Command-T.git'
         " Bundle 'git://github.com/vim-scripts/taglist.vim.git'
@@ -61,6 +61,7 @@ set nocompatible
         " Bundle 'git://github.com/tpope/vim-fugitive.git'
         " Bundle 'git://github.com/tsaleh/vim-align.git'
         " Bundle 'git://github.com/vim-scripts/bufexplorer.zip.git'
+        
         " Automatic closing of quotes, parenthesis, brackets, etc.
         " Bundle 'git://github.com/vim-scripts/delimitMate.vim.git'
         " Bundle 'git://github.com/sjl/gundo.vim.git'
@@ -68,10 +69,11 @@ set nocompatible
         Bundle 'git://github.com/sjl/threesome.vim.git'
         " Bundle 'git://github.com/chrismetcalf/vim-yankring.git'
         " Bundle 'git://github.com/slack/vim-fuzzyfinder.git'
-        "Bundle 'git://github.com/vim-scripts/vimwiki.git'
+        " Bundle 'git://github.com/vim-scripts/vimwiki.git'
         Bundle 'git://github.com/Lokaltog/vim-powerline.git'
         Bundle 'git://github.com/scrooloose/syntastic.git'
-        Bundle 'git://github.com/vim-scripts/TaskList.vim.git'
+        " Bundle 'git://github.com/vim-scripts/TaskList.vim.git'
+        Bundle 'git://github.com/sickill/vim-pasta.git'
 
     " Colorscheme
 
@@ -101,9 +103,8 @@ set nocompatible
         " Bundle 'git://github.com/tyru/operator-html-escape.vim.git'
         " Runtime files for Haml and Sass
         Bundle 'git://github.com/tpope/vim-haml.git'
-        Bundle 'git://github.com/gregsexton/MatchTag.git'
+        "Bundle 'git://github.com/gregsexton/MatchTag.git'
         Bundle 'git://github.com/beyondwords/vim-twig.git'
-        Bundle 'git://github.com/timcharper/textile.vim.git'
     " CSS/LESS
         " CSS3 syntax support
         Bundle 'git://github.com/hail2u/vim-css3-syntax.git'
@@ -128,7 +129,7 @@ set nocompatible
     " Python/Django
         " Bundle 'git://github.com/fs111/pydoc.vim.git'
     " Perl
-        Bundle 'git://github.com/petdance/vim-perl.git'
+        " Bundle 'git://github.com/petdance/vim-perl.git'
     " Ruby/Rails
         " Editing and compiling Ruby
         " Bundle 'git://github.com/vim-ruby/vim-ruby.git'
@@ -142,8 +143,8 @@ set nocompatible
         " Bundle 'git://github.com/wavded/vim-stylus.git'
 
         Bundle 'Markdown-syntax'
+        Bundle 'git://github.com/timcharper/textile.vim.git'
 
-        Bundle 'git://github.com/sickill/vim-pasta.git'
     " Graddle
         Bundle 'git://github.com/vim-scripts/groovy.vim.git'
         Bundle 'git://github.com/martintreurnicht/vim-gradle.git'
@@ -215,7 +216,7 @@ set nocompatible
     end
     " Maximum width of text that is being inserted
     " Longer lines will be broken after white space to get this width
-    set textwidth=80
+    " set textwidth=80
     " Copy indent from current line when starting a new line
     set autoindent
     " Do smart indenting when starting a new line
@@ -626,9 +627,9 @@ set nocompatible
         " vnoremap <Space> zf
         
     " ,tt show tabs
-        map <Leader>tt :tabs<CR>
+        " map <Leader>tt :tabs<CR>
     " ,t go tab
-        map <Leader>t :tabn
+        " map <Leader>t :tabn
     " Switch tabs with <Tab>
         nmap <Tab> gt
         nmap <S-Tab> gT
@@ -733,7 +734,7 @@ set nocompatible
         " Use arrows instead of + ~ chars when displaying directories
         let NERDTreeDirArrows=1
         let NERDTreeBookmarksFile= $HOME . '/.vim/.NERDTreeBookmarks'
-        let g:NERDTreeWinSize = 50
+        let g:NERDTreeWinSize=50
         
 
     " Zen Coding
@@ -819,6 +820,19 @@ set nocompatible
     "stop parenthesis matching (it fix slow cursor)
     let loaded_matchparent=1
 
+    " disable vim-pasta for some types
+    let g:pasta_disabled_filetypes = ['python', 'coffee', 'yaml']
+
     " Disable Ex-mode
     map Q <Nop>
 
+    " Paste yanked text
+    map <S-Insert> <C-r>"
+    map! <S-Insert> <C-r>"
+
+    ":map <silent> <S-Insert> "+p
+    ":imap <silent> <S-Insert> <Esc>"+pa
+
+    " Make shift-insert work like in Xterm
+    "map <S-Insert> <MiddleMouse>
+    "map! <S-Insert> <MiddleMouse>
