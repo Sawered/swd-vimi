@@ -152,6 +152,10 @@ set nocompatible
 
     " Yaml
        Bundle  'git://github.com/stephpy/vim-yaml.git'
+    " Go
+    "
+       Bundle 'Go-Syntax'
+       Bundle 'git://github.com/evanmiller/nginx-vim-syntax.git'
         
     filetype plugin indent on     " required!
 
@@ -790,6 +794,7 @@ set nocompatible
     " Ovverride syntax
     au BufNewFile,BufRead *.gradle setf groovy
     au BufNewFile,BufRead,BufReadPre *.md setf markdown
+    au BufNewFile,BufRead,BufReadPre *.go setf go
     "au BufNewFile,BufRead *.html.twig set filetype=htmltwig
 
     colorscheme jellybeans
