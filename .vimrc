@@ -44,7 +44,7 @@ set nocompatible
         " Shows 'Nth match out of M' at every search
         Bundle 'git://github.com/vim-scripts/IndexedSearch.git'
         " Bundle 'git://github.com/rphillips/vim-zoomwin.git'
-        Bundle 'https://github.com/mattn/emmet-vim.git'
+        Bundle 'git://github.com/mattn/emmet-vim.git'
         " TextMate-like snippets
         " Bundle 'git://github.com/vim-scripts/UltiSnips.git'
         " TextMate-like snippets
@@ -61,7 +61,6 @@ set nocompatible
         " Bundle 'git://github.com/tpope/vim-fugitive.git'
         " Bundle 'git://github.com/tsaleh/vim-align.git'
         " Bundle 'git://github.com/vim-scripts/bufexplorer.zip.git'
-        
         " Automatic closing of quotes, parenthesis, brackets, etc.
         " Bundle 'git://github.com/vim-scripts/delimitMate.vim.git'
         " Bundle 'git://github.com/sjl/gundo.vim.git'
@@ -74,6 +73,10 @@ set nocompatible
         Bundle 'git://github.com/scrooloose/syntastic.git'
         " Bundle 'git://github.com/vim-scripts/TaskList.vim.git'
         Bundle 'git://github.com/sickill/vim-pasta.git'
+        " You need to install webapi-vim for gist-vim
+        " Also you need to do `git config --global github.user <username>`
+        Bundle 'mattn/webapi-vim'
+        Bundle 'mattn/gist-vim'
 
     " Colorscheme
 
@@ -142,6 +145,8 @@ set nocompatible
         " Bundle 'git://github.com/digitaltoad/vim-jade.git'
     " Stylus
         " Bundle 'git://github.com/wavded/vim-stylus.git'
+    " Go
+        Bundle 'git://github.com/fatih/vim-go.git'
 
         Bundle 'Markdown-syntax'
         Bundle 'git://github.com/timcharper/textile.vim.git'
@@ -156,7 +161,7 @@ set nocompatible
     "
        Bundle 'Go-Syntax'
        Bundle 'git://github.com/evanmiller/nginx-vim-syntax.git'
-        
+
     filetype plugin indent on     " required!
 
 " Interface
@@ -194,7 +199,7 @@ set nocompatible
     " Minimal number of lines to scroll when cursor gets off the screen
     " set scrolljump=5
     " Minimal number of lines to keep above and below the cursor
-    " Typewriter mode = keep current line in the center 
+    " Typewriter mode = keep current line in the center
     set scrolloff=999
     " Always show tabs
     " set showtabline=2
@@ -279,51 +284,71 @@ set nocompatible
     set path=.,,**
 
 " Status line
-        function! FileSize()
-            let bytes = getfsize(expand("%:p"))
-            if bytes <= 0
-                return ""
-            endif
-            if bytes < 1024
-                return bytes . "B"
-            else
-                return (bytes / 1024) . "K"
-            endif
-        endfunction
+    function! FileSize()
+        let bytes = getfsize(expand("%:p"))
+        if bytes <= 0
+            return ""
+        endif
+        if bytes < 1024
+            return bytes . "B"
+        else
+            return (bytes / 1024) . "K"
+        endif
+    endfunction
 
-        function! CurDir()
-            return expand('%:p:~')
-        endfunction
+    function! CurDir()
+        return expand('%:p:~')
+    endfunction
 
-        set laststatus=2
-        set statusline=\ 
-        set statusline+=%n:\                 " buffer number
-        set statusline+=%t                   " filename with full path
-        set statusline+=%m                   " modified flag
-        set statusline+=\ \ 
-        set statusline+=%{&paste?'[paste]\ ':''}
-        set statusline+=%{&fileencoding}
-        set statusline+=\ \ %Y               " type of file
-        set statusline+=\ %3.3(%c%)          " column number
-        set statusline+=\ \ %3.9(%l/%L%)     " line / total lines
-        "set statusline+=\ \ %2.3p%%          " percentage through file in lines
-        set statusline+=\ \ %{FileSize()}
-        set statusline+=%<                   " where truncate if line too long
-        set statusline+=\ \ CurDir:%{CurDir()}
+    " Last window always has a status line
+    set laststatus=2
+    " Content of the status line
+    " Only available when compiled with the +statusline feature
+    set statusline=\
+    " Buffer number
+    set statusline+=%n:\
+    " File name
+    set statusline+=%t
+    " Modified flag
+    set statusline+=%m
+    set statusline+=\ \
+    " Paste mode flag
+    set statusline+=%{&paste?'[paste]\ ':''}
+    " File encoding
+    set statusline+=%{&fileencoding}
+    " Type of file
+    " Only available when compiled with the +autocmd feature
+    set statusline+=\ \ %Y
+    " Column number
+    set statusline+=\ %3.3(%c%)
+    " Current line / number of lines in buffer
+    set statusline+=\ \ %3.9(%l/%L%)
+    " Percentage through file in lines
+    " set statusline+=\ \ %2.3p%%
+    " File size
+    set statusline+=\ \ %{FileSize()}
+    " Truncate here if line is too long
+    set statusline+=%<
+    " Path to the file
+    set statusline+=\ \ CurDir:%{CurDir()}
 
 
 
 
 
-    " Создаем меню с кодировками
+" Create encodings menu
+" Создаем меню с кодировками
         menu Encoding.UTF-8 :e ++enc=utf8 <CR>
         menu Encoding.Windows-1251 :e ++enc=cp1251<CR>
         menu Encoding.koi8-r :e ++enc=koi8-r<CR>
         menu Encoding.cp866 :e ++enc=cp866<CR>
 
-    " Проверка орфографии
+
+" Spell checking
+" Проверка орфографии
         if version >= 700
-            set spell spelllang= 
+        " Turn off spell checking
+            set spell spelllang=
             set nospell " По умолчанию проверка орфографии выключена
             menu Spell.off :setlocal spell spelllang= <cr>
             menu Spell.Russian+English :setlocal spell spelllang=ru,en <cr>
@@ -335,10 +360,10 @@ set nocompatible
             menu Spell.Next\ Wrong\ Word<Tab>]s ]s
         endif
 
-    " Фолдинг
-        " Всё, что нужно знать для начала:
-        " za - скрыть/открыть текущую складку.
-        " {zR, zM} - {открыть, скрыть} все складки.
+" Folding
+    " za = toggle current fold
+    " zR = open all folds
+    " zM = close all folds
         " from https://github.com/sjl/dotfiles/blob/master/vim/.vimrc
         function! MyFoldText()
             let line = getline(v:foldstart)
@@ -373,15 +398,18 @@ set nocompatible
 
 
 " Search
-    set incsearch   " При поиске перескакивать на найденный текст в процессе набора строки
-    set hlsearch    " Включаем подсветку выражения, которое ищется в тексте
-    set ignorecase  " Игнорировать регистр букв при поиске
-    set smartcase   " Override the 'ignorecase' if the search pattern contains upper case characters
-    set gdefault    " Включает флаг g в командах замены, типа :%s/a/b/
-
-
-
-
+    " While typing a search command, show pattern matches as it is typed
+    " Only available when compiled with the +extra_search feature
+    set incsearch
+    " When there is a previous search pattern, highlight all its matches
+    " Only available when compiled with the +extra_search feature
+    set hlsearch
+    " Ignore case in search patterns
+    set ignorecase
+    " Override the 'ignorecase' if the search pattern contains upper case characters
+    set smartcase
+    " All matches in a line are substituted instead of one
+    set gdefault
 
 
 " Шорткаты
@@ -389,7 +417,7 @@ set nocompatible
     let mapleader = "," " мапим <Leader> на запятую. По умолчанию <Leader> это обратный слэш \
 
     " ,m
-        " в Normal mode тогглит поддержку мыши
+        " Toggle mouse support in Normal mode
         set mouse=
         function! ToggleMouse()
           if &mouse == 'a'
@@ -403,13 +431,14 @@ set nocompatible
         nnoremap <leader>m :call ToggleMouse()<CR>
 
     " ,r
-        " Поиск и замена во всех открытых буферах http://vim.wikia.com/wiki/VimTip382
+        " Find and replace in all open buffers
+        " See http://vim.wikia.com/wiki/VimTip382
         function! Replace()
             let s:word = input("Replace " . expand('<cword>') . " with:")
             :exe 'bufdo! %s/\<' . expand('<cword>') . '\>/' . s:word . '/gce'
             :unlet! s:word
         endfunction
-        map <Leader>r :call Replace()<CR>
+        nnoremap <Leader>r :<C-u>call Replace()<CR>
 
     " <Esc><Esc>
         " Clear the search highlight in Normal mode
@@ -420,15 +449,13 @@ set nocompatible
         vnoremap > >gv
 
     " ,p
-        " Вставлять код извне без этой строчки проблематично, без нее начитается
-        " бешеный реформат кода
+        " Toggle the 'paste' option
         "set pastetoggle=<Leader>p
 
-
     " ,nm
-        " Toggle type of line numbers
+        " Switch type of line numbers
         " http://stackoverflow.com/questions/4387210/vim-how-to-map-two-tasks-under-one-shortcut-key
-        " vim 7.3 required
+        " Vim 7.3 required
         let g:relativenumber = 0
         function! ToogleRelativeNumber()
           if g:relativenumber == 0
@@ -448,7 +475,7 @@ set nocompatible
             echo "Show no line numbers"
           endif
         endfunction
-        map <Leader>n :call ToogleRelativeNumber()<cr>
+        nnoremap <Leader>nm :<C-u>call ToogleRelativeNumber()<cr>
 
     " ,g
         " Toggle GUI elements
@@ -462,33 +489,33 @@ set nocompatible
             echo "Show no GUI elements"
           endif
         endfunction
-        map <Leader>g <Esc>:call ToggleGUINoise()<cr>
+        nnoremap <Leader>g <Esc>:<C-u>call ToggleGUINoise()<cr>
 
     " ,f
         " Fast grep
         " Recursive search in current directory for matches with current word
-        map <Leader>f :execute "Ack " . expand("<cword>") <Bar> cw<CR>
+        nnoremap <Leader>f :<C-u>execute "Ack " . expand("<cword>") <Bar> cw<CR>
 
     " ,s
         " Shortcut for :%s//
-        nnoremap <leader>s :%s//<left>
+        nnoremap <leader>s :<C-u>%s//<left>
         vnoremap <leader>s :s//<left>
 
     " Move lines
         " Move one line
-        nmap <C-S-k> ddkP
-        nmap <C-S-j> ddp
+        nnoremap <C-S-k> ddkP
+        nnoremap <C-S-j> ddp
         " Move selected lines
         " See http://www.vim.org/scripts/script.php?script_id=1590
-        vmap <C-S-k> xkP'[V']
-        vmap <C-S-j> xp'[V']
+        vnoremap <C-S-k> xkP'[V']
+        vnoremap <C-S-j> xp'[V']
 
     " Y from cursor position to the end of line
         nnoremap Y y$
 
     " Pasting with correct indention
-        " nmap p p=`]
-        " nmap P P=`[
+        " nnoremap p p=`]
+        " nnoremap P P=`[
 
     " Disable <Arrow keys>
         " Warning: nightmare mode!
@@ -501,33 +528,33 @@ set nocompatible
         "noremap <Left> <NOP>
         "noremap <Right> <NOP>
         " Navigate with <Ctrl>-hjkl in Insert mode
-        imap <C-h> <C-o>h
-        imap <C-j> <C-o>j
-        imap <C-k> <C-o>k
-        imap <C-l> <C-o>l
+        inoremap <C-h> <C-o>h
+        inoremap <C-j> <C-o>j
+        inoremap <C-k> <C-o>k
+        inoremap <C-l> <C-o>l
 
     " Switch splits
-        nmap <C-h> <C-W>h
-        nmap <C-j> <C-W>j
-        nmap <C-k> <C-W>k
-        nmap <C-l> <C-W>l
+        nnoremap <C-h> <C-W>h
+        nnoremap <C-j> <C-W>j
+        nnoremap <C-k> <C-W>k
+        nnoremap <C-l> <C-W>l
 
     " ,v
         " Open the .vimrc in a new tab
-        nmap <leader>v :tabedit $MYVIMRC<CR>
+        nnoremap <leader>v :<C-u>tabedit $MYVIMRC<CR>
         :cabbrev e NERDTreeClose<CR>:e!
 
     " <Space> = <PageDown>
-        nmap <Space> <PageDown>
+        nnoremap <Space> <PageDown>
 
     " n и N
         " Search matches are always in center
-        nmap n nzz
-        nmap N Nzz
-        nmap * *zz
-        nmap # #zz
-        nmap g* g*zz
-        nmap g# g#zz
+        nnoremap n nzz
+        nnoremap N Nzz
+        nnoremap * *zz
+        nnoremap # #zz
+        nnoremap g* g*zz
+        nnoremap g# g#zz
 
     " K to split
         " Basically this splits the current line into two new ones at the cursor position,
@@ -555,13 +582,13 @@ set nocompatible
 
     " gf
         " Open file under cursor in a new vertical split
-        nmap gf :vertical wincmd f<CR>
+        nnoremap gf :<C-u>vertical wincmd f<CR>
 
     " Create a new window relative to the current one
-        nmap <Leader><left>  :leftabove  vnew<CR>
-        nmap <Leader><right> :rightbelow vnew<CR>
-        nmap <Leader><up>    :leftabove  new<CR>
-        nmap <Leader><down>  :rightbelow new<CR>
+        nnoremap <Leader><left>  :<C-u>leftabove  vnew<CR>
+        nnoremap <Leader><right> :<C-u>rightbelow vnew<CR>
+        nnoremap <Leader><up>    :<C-u>leftabove  new<CR>
+        nnoremap <Leader><down>  :<C-u>rightbelow new<CR>
 
     " Copy indented line without spaces
         nnoremap ,y ^yg_"_dd
@@ -572,23 +599,23 @@ set nocompatible
 
     " <Space><Space>
         " Double space to ". "
-        " imap <Space><Space> . 
+        " inoremap <Space><Space> .
 
     " ,ts
         " Fix trailing white space
-        map <leader>ts :%s/\s\+$//e<CR>
+        nnoremap <leader>ts :<C-u>%s/\s\+$//e<CR>
 
     " ,bl
         " Show buffers
-        nmap <Leader>bl :ls<cr>:b
+        nnoremap <Leader>bl :<C-u>ls<cr>:b
 
     " ,bp
         " Go to prev buffer
-        nmap <Leader>bp :bp<cr>
+        nnoremap <Leader>bp :<C-u>bp<cr>
 
     " ,bn
         " Go to next buffer
-        nmap <Leader>bn :bn<cr>
+        nnoremap <Leader>bn :<C-u>bn<cr>
 
     " ,u
         " Change case to uppercase
@@ -598,25 +625,25 @@ set nocompatible
     " В коммандном режиме разрешить прыгать в конец и начало строки,
     " как в консоли
         cnoremap <c-e> <end>
-        imap     <c-e> <c-o>$
+        inoremap     <c-e> <c-o>$
         cnoremap <c-a> <home>
-        imap     <c-a> <c-o>^
+        inoremap     <c-a> <c-o>^
 
     " ,b
         " In Visual mode exec git blame with selected text
-        vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+        vnoremap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 
     " ,w
         " Jump to next split
-        map <Leader>w <C-w>w
+        nnoremap <Leader>w <C-w>w
 
     " Ctrl+s
-        map <C-s> <esc>:w<CR>
-        imap <C-s> <esc>:w<CR>
+        noremap <C-s> <esc>:w<CR>
+        inoremap <C-s> <esc>:w<CR>
 
     " ,n
         " Edit another file in the same directory with the current one
-        map <Leader>n :vnew <C-R>=expand("%:p:h") . '/'<CR>
+        noremap <Leader>n :<C-u>vnew <C-R>=expand("%:p:h") . '/'<CR>
 
     " Bind :Q to :q
         command! Q q
@@ -630,14 +657,14 @@ set nocompatible
     " Fold with space
         " nnoremap <Space> za
         " vnoremap <Space> zf
-        
+
     " ,tt show tabs
         " map <Leader>tt :tabs<CR>
     " ,t go tab
         " map <Leader>t :tabn
     " Switch tabs with <Tab>
-        nmap <Tab> gt
-        nmap <S-Tab> gT
+        nnoremap <Tab> gt
+        nnoremap <S-Tab> gT
 
     " Ремапим русские символы
         " set langmap=ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.~QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>
@@ -728,7 +755,7 @@ set nocompatible
     "    endtry
 
     " NERDTree
-        nmap <Bs> :NERDTreeToggle<CR>
+        nnoremap <Bs> :<C-u>NERDTreeToggle<CR>
         let NERDTreeShowBookmarks=0
         let NERDTreeChDirMode=0
         let NERDTreeQuitOnOpen=1
@@ -740,21 +767,7 @@ set nocompatible
         let NERDTreeDirArrows=1
         let NERDTreeBookmarksFile= $HOME . '/.vim/.NERDTreeBookmarks'
         let g:NERDTreeWinSize=50
-        
 
-    " Zen Coding
-        let g:user_zen_settings = {
-          \  'php' : {
-          \    'extends' : 'html',
-          \    'filters' : 'c',
-          \  },
-          \  'xml' : {
-          \    'extends' : 'html',
-          \  },
-          \  'haml' : {
-          \    'extends' : 'html',
-          \  },
-          \}
 
     " UltiSnips
         let g:UltiSnipsExpandTrigger="<tab>"
@@ -776,7 +789,7 @@ set nocompatible
         let g:syntastic_enable_signs=1
         "highlight SyntasticErrorSign guifg=white guibg=red
 
-" Custom modifications 
+" Custom modifications
 
     function! <SID>StripTrailingWhitespaces()
         " Preparation: save last search, and cursor position.
@@ -800,7 +813,7 @@ set nocompatible
     colorscheme jellybeans
     " laravel
     " peacock
-    " halflife 
+    " halflife
     " juicy
     " zacks
     " hyrule
