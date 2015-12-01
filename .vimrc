@@ -32,6 +32,7 @@ set nocompatible
         " Solarized Colorscheme
         Bundle 'git://github.com/altercation/vim-colors-solarized.git'
         Bundle 'git://github.com/gorodinskiy/vim-coloresque.git'
+        Bundle 'https://github.com/freeo/vim-kalisi'
         " A tree explorer plugin
         Bundle 'git://github.com/scrooloose/nerdtree.git'
         " Perform all your vim insert mode completions with Tab
@@ -130,6 +131,7 @@ set nocompatible
     " PHP
         Bundle 'git://github.com/vim-scripts/php.vim--Garvin.git'
         Bundle 'git://github.com/2072/PHP-Indenting-for-VIm.git'
+        Plugin '2072/vim-syntax-for-PHP.git'
     " Python/Django
         " Bundle 'git://github.com/fs111/pydoc.vim.git'
     " Perl
@@ -788,6 +790,8 @@ set nocompatible
     " Syntastic
         let g:syntastic_enable_signs=1
         "highlight SyntasticErrorSign guifg=white guibg=red
+        let g:loaded_syntastic_javascript_jshint_checker=1
+        let g:syntastic_javascript_checkers = ['jshint']
 
 " Custom modifications
 
