@@ -512,6 +512,10 @@ set nocompatible
         vnoremap <C-S-k> xkP'[V']
         vnoremap <C-S-j> xp'[V']
 
+    "Standart Copy paste
+        vnoremap <C-c> "+y
+        nnoremap <C-a> :set paste<cr>"+p<cr>:set nopaste<cr>
+
     " Y from cursor position to the end of line
         nnoremap Y y$
 
