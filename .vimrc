@@ -3,7 +3,7 @@
 " Author: Vyacheslav Oliyanchuk <miripiruni@gmail.com>
 " URL: http://github.com/miripiruni/vimi/
 "=============================================================================
-
+"so ~/.vimi/.load_vam
 " Make Vim more useful
 set nocompatible
 
