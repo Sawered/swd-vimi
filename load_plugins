@@ -1,0 +1,57 @@
+" powerline needs fonts
+" git clone git@github.com:powerline/fonts.git powerline-fonts
+
+
+" ACTIVATING PLUGINS
+" OPTION 1, use VAMActivate
+"VAMActivate PLUGIN_NAME PLUGIN_NAME ..
+"Colorschemes
+VAMActivate jellybeans desertEx Wombat
+VAMActivate vim-snippets snipmate
+"Navigation & Interface
+VAMActivate The_NERD_tree The_NERD_Commenter Syntastic
+VAMActivate  ctrlp powerline ack
+VAMActivate github:sickill/vim-pasta
+VAMActivate github:vim-scripts/IndexedSearch
+
+
+" Html tools
+VAMActivate Emmet
+" HTML/HAML
+VAMActivate vim-twig
+VAMActivate github:xenoterracide/html.vim 
+" CSS/LESS
+VAMActivate vim-css3-syntax 
+VAMActivate github:groenewege/vim-less 
+VAMActivate github:miripiruni/vim-better-css-indent
+
+" JavaScript
+VAMActivate vim-javascript
+VAMActivate github:walm/jshint.vim 
+VAMActivate github:itspriddle/vim-jquery
+" JSON
+VAMActivate github:leshill/vim-json 
+
+" PHP
+VAMActivate github:2072/PHP-Indenting-for-VIm
+VAMActivate github:2072/vim-syntax-for-PHP
+VAMActivate github:stephpy/vim-php-cs-fixer
+" GO
+VAMActivate vim-go Go_Syntax
+" Rust
+VAMActivate rust
+VAMActivate  github:racer-rust/vim-racer
+VAMActivate  github:cespare/vim-toml
+" Other
+VAMActivate Markdown_syntax
+VAMActivate  github:stephpy/vim-yaml
+VAMActivate  github:evanmiller/nginx-vim-syntax
+" OPTION 2: use call vam#ActivateAddons
+"call vam#ActivateAddons([PLUGIN_NAME], {})
+" use <c-x><c-p> to complete plugin names
+
+" OPTION 3: Create a file ~/.vim-scripts putting a PLUGIN_NAME into each line
+" See lazy loading plugins section in README.md for details
+"call vam#Scripts('~/.vim-scripts', {'tag_regex': '.*'})
+
+" vim: ft=vim
