@@ -10,7 +10,7 @@ VAMActivate jellybeans desertEx Wombat
 VAMActivate vim-snippets snipmate
 "Navigation & Interface
 VAMActivate The_NERD_tree The_NERD_Commenter Syntastic
-VAMActivate  ctrlp powerline ack
+VAMActivate  ctrlp powerline ack editorconfig-vim
 VAMActivate github:sickill/vim-pasta
 VAMActivate github:vim-scripts/IndexedSearch
 

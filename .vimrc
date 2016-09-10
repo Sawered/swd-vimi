@@ -5,7 +5,7 @@
 "=============================================================================
 so ~/.vimi/load_vam
 so ~/.vimi/load_plugins
-"so ~/.vimi/.load_vun
+"so ~/.vimi/load_vun
 " Interface
     set guifont=Hack\ 11
     " Character encoding used inside Vim
