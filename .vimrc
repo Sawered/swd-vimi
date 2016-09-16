@@ -7,7 +7,6 @@ so ~/.vimi/load_vam
 so ~/.vimi/load_plugins
 "so ~/.vimi/load_vun
 " Interface
-    set guifont=Hack\ 11
     " Character encoding used inside Vim
     " Only available when compiled with the +multi_byte feature
     set encoding=utf-8
@@ -657,7 +656,7 @@ so ~/.vimi/load_plugins
     au BufNewFile,BufRead *.gradle setf groovy
     au BufNewFile,BufRead,BufReadPre *.md setf markdown
     au BufNewFile,BufRead,BufReadPre *.go setf go
-    "au BufNewFile,BufRead *.html.twig set filetype=htmltwig
+    au BufNewFile,BufRead *.twig set filetype=html.twig
 
     colorscheme jellybeans
     " laravel
@@ -717,3 +716,9 @@ so ~/.vimi/load_plugins
     let g:php_cs_fixer_enable_default_mapping = 1     " Enable the mapping by default (<leader>pcd)
     let g:php_cs_fixer_dry_run = 0                    " Call command with dry-run option
     let g:php_cs_fixer_verbose = 0                    " Return the output of command if 1, else an inline information.
+
+
+" SnipMate
+let g:snipMate = get(g:, 'snipMate', {}) " Allow for vimrc re-sourcing
+let g:snipMate.scope_aliases = {}
+let g:snipMate.scope_aliases['php'] = 'php,myphp'

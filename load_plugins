@@ -9,10 +9,13 @@
 VAMActivate jellybeans desertEx Wombat
 VAMActivate vim-snippets snipmate
 "Navigation & Interface
+"VAMActivate github:ryanoasis/vim-devicons
 VAMActivate The_NERD_tree The_NERD_Commenter Syntastic
-VAMActivate  ctrlp powerline ack editorconfig-vim
+VAMActivate powerline ack editorconfig-vim
+VAMActivate github:ctrlpvim/ctrlp.vim
 VAMActivate github:sickill/vim-pasta
-VAMActivate github:vim-scripts/IndexedSearch
+VAMActivate bufexplorer.zip
+"VAMActivate github:vim-scripts/IndexedSearch
 
 
 " Html tools
@@ -35,7 +38,8 @@ VAMActivate github:leshill/vim-json
 " PHP
 VAMActivate github:2072/PHP-Indenting-for-VIm
 VAMActivate github:2072/vim-syntax-for-PHP
-VAMActivate github:stephpy/vim-php-cs-fixer
+"VAMActivate github:StanAngeloff/php.vim
+"VAMActivate github:stephpy/vim-php-cs-fixer
 " GO
 VAMActivate vim-go Go_Syntax
 " Rust
