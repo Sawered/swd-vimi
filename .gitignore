@@ -1,4 +1,6 @@
 .vim/Session.vim
+.vim/vim-addons/
 .vim/bundle/
 .vim/.NERDTreeBookmarks
 *.sw[opn]
+*.orig
