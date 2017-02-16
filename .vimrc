@@ -353,7 +353,7 @@ so ~/.vimi/load_plugins
         vnoremap <C-S-k> xkP'[V']
         vnoremap <C-S-j> xp'[V']
 
-    "Standart Copy paste
+    " Standart Copy paste
         vnoremap <C-c> "+y
         nnoremap <C-a> :set paste<cr>"+p<cr>:set nopaste<cr>
 
@@ -651,7 +651,7 @@ so ~/.vimi/load_plugins
         let @/=_s
         call cursor(l, c)
     endfunction
-    autocmd BufWritePre *.py,*.js,*.php,*.sql,*.css,*.less :call <SID>StripTrailingWhitespaces()
+    autocmd BufWritePre *.rs,*.py,*.js,*.php,*.sql,*.css,*.less :call <SID>StripTrailingWhitespaces()
 
     " Ovverride syntax
     au BufNewFile,BufRead *.gradle setf groovy
@@ -717,3 +717,8 @@ so ~/.vimi/load_plugins
     let g:php_cs_fixer_enable_default_mapping = 1     " Enable the mapping by default (<leader>pcd)
     let g:php_cs_fixer_dry_run = 0                    " Call command with dry-run option
     let g:php_cs_fixer_verbose = 0                    " Return the output of command if 1, else an inline information.
+"Racer
+    set hidden
+    "let g:racer_cmd = "/home/sawered/.cargo/bin/racer"
+    "let $RUST_SRC_PATH="$HOME/prj/rust/src/"
+    let g:racer_experimental_completer = 1

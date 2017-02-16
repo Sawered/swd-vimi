@@ -12,7 +12,7 @@ VAMActivate vim-snippets snipmate
 VAMActivate The_NERD_tree The_NERD_Commenter Syntastic
 VAMActivate  ctrlp powerline ack editorconfig-vim
 VAMActivate github:sickill/vim-pasta
-VAMActivate github:vim-scripts/IndexedSearch
+"VAMActivate github:vim-scripts/IndexedSearch
 
 
 " Html tools
@@ -40,8 +40,8 @@ VAMActivate github:stephpy/vim-php-cs-fixer
 VAMActivate vim-go Go_Syntax
 " Rust
 VAMActivate rust
-VAMActivate  github:racer-rust/vim-racer
-VAMActivate  github:cespare/vim-toml
+VAMActivate github:racer-rust/vim-racer
+VAMActivate github:cespare/vim-toml
 " Other
 VAMActivate Markdown_syntax
 VAMActivate  github:stephpy/vim-yaml
