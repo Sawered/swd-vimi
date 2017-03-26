@@ -21,7 +21,7 @@ nnoremap [m :action MethodUp<cr>
 " Next method.
 nnoremap ]m :action MethodDown<cr>
 
-nnoremap <C-w> :action CloseEditor<CR>
+nnoremap <C-w><C-q> :action CloseEditor<CR>
 nnoremap <C-PageDown> :action NextTab<CR>
 nnoremap <C-PageUp> :action PreviousTab<CR>
 
