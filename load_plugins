@@ -45,7 +45,7 @@ VAMActivate github:cespare/vim-toml
 " Other
 VAMActivate Markdown_syntax
 VAMActivate  github:stephpy/vim-yaml
-VAMActivate  github:evanmiller/nginx-vim-syntax
+VAMActivate  github:vim-scripts/nginx.vim
 " OPTION 2: use call vam#ActivateAddons
 "call vam#ActivateAddons([PLUGIN_NAME], {})
 " use <c-x><c-p> to complete plugin names
