@@ -3,9 +3,7 @@
 " Author: Vyacheslav Oliyanchuk <miripiruni@gmail.com>
 " URL: http://github.com/miripiruni/vimi/
 "=============================================================================
-so ~/.vimi/load_vam
 so ~/.vimi/load_plugins
-"so ~/.vimi/load_vun
 " Interface
     set guifont=Hack\ 11
     " Character encoding used inside Vim
@@ -115,6 +113,7 @@ so ~/.vimi/load_plugins
     set mousehide
     " Edit several files in the same time without having to save them
     set hidden
+    set modeline
 
     " No beeps, no flashes
     set visualbell
@@ -615,6 +614,8 @@ so ~/.vimi/load_plugins
         let NERDTreeBookmarksFile= $HOME . '/.vim/.NERDTreeBookmarks'
         let g:NERDTreeWinSize=50
 
+    " SnipMate
+        let g:snipMate = { 'snippet_version' : 1 }
 
     " UltiSnips
         let g:UltiSnipsExpandTrigger="<tab>"
@@ -638,6 +639,49 @@ so ~/.vimi/load_plugins
         let g:loaded_syntastic_javascript_jshint_checker=1
         let g:syntastic_javascript_checkers = ['jshint']
 
+    " Airline
+        let g:airline_theme='powerlineish'
+        " base16,wombat
+        let g:airline_powerline_fonts = 1
+
+        if !exists('g:airline_symbols')
+          let g:airline_symbols = {}
+        endif
+
+        " unicode symbols
+        let g:airline_left_sep = '»'
+        let g:airline_left_sep = '▶'
+        let g:airline_right_sep = '«'
+        let g:airline_right_sep = '◀'
+        let g:airline_symbols.colnr = ' ㏇:'
+        let g:airline_symbols.colnr = ' ℅:'
+        let g:airline_symbols.crypt = '🔒'
+        let g:airline_symbols.linenr = '☰'
+        let g:airline_symbols.linenr = ' ␊:'
+        let g:airline_symbols.linenr = ' ␤:'
+        let g:airline_symbols.linenr = '¶'
+        let g:airline_symbols.maxlinenr = ''
+        let g:airline_symbols.maxlinenr = '㏑'
+        let g:airline_symbols.branch = '⎇'
+        let g:airline_symbols.paste = 'ρ'
+        let g:airline_symbols.paste = 'Þ'
+        let g:airline_symbols.paste = '∥'
+        let g:airline_symbols.spell = 'Ꞩ'
+        let g:airline_symbols.notexists = 'Ɇ'
+        let g:airline_symbols.notexists = '∄'
+        let g:airline_symbols.whitespace = 'Ξ'
+
+        " powerline symbols
+        let g:airline_left_sep = ''
+        let g:airline_left_alt_sep = ''
+        let g:airline_right_sep = ''
+        let g:airline_right_alt_sep = ''
+        let g:airline_symbols.branch = ''
+        let g:airline_symbols.colnr = ' ℅:'
+        let g:airline_symbols.readonly = ''
+        let g:airline_symbols.linenr = ' :'
+        let g:airline_symbols.maxlinenr = '☰ '
+        let g:airline_symbols.dirty='⚡'
 " Custom modifications
 
     function! <SID>StripTrailingWhitespaces()

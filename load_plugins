@@ -1,57 +1,66 @@
-" powerline needs fonts
+" airline needs fonts
 " git clone git@github.com:powerline/fonts.git powerline-fonts
+call plug#begin('~/.vim/plugged')
 
 
-" ACTIVATING PLUGINS
-" OPTION 1, use VAMActivate
-"VAMActivate PLUGIN_NAME PLUGIN_NAME ..
-"Colorschemes
-VAMActivate jellybeans desertEx Wombat
-VAMActivate vim-snippets snipmate
-"Navigation & Interface
-VAMActivate The_NERD_tree The_NERD_Commenter Syntastic
-VAMActivate  ctrlp powerline ack editorconfig-vim
-VAMActivate github:sickill/vim-pasta
-"VAMActivate github:vim-scripts/IndexedSearch
+" Colorschemes
+Plug 'mbbill/desertEx'
+Plug 'nanotech/jellybeans.vim'
+Plug 'vim-scripts/Wombat'
+" Navigation & Interface
+Plug 'preservim/nerdtree'
+Plug 'preservim/nerdcommenter'
+Plug 'vim-syntastic/syntastic'
+Plug 'ctrlpvim/ctrlp.vim' 
+Plug 'mileszs/ack.vim'
+Plug 'vim-scripts/editorconfig-vim'
+Plug 'sickill/vim-pasta'
+"Plug 'vim-scripts/IndexedSearch'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Snippets
+Plug 'garbas/vim-snipmate'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'honza/vim-snippets'
 
 
 " Html tools
-VAMActivate Emmet
+Plug 'mattn/emmet-vim'
 " HTML/HAML
-VAMActivate vim-twig
-VAMActivate github:xenoterracide/html.vim 
+Plug 'nelsyeung/twig.vim'
+Plug 'xenoterracide/html.vim'
 " CSS/LESS
-VAMActivate vim-css3-syntax 
-VAMActivate github:groenewege/vim-less 
-VAMActivate github:miripiruni/vim-better-css-indent
+Plug 'hail2u/vim-css3-syntax'
+Plug 'groenewege/vim-less'
+Plug 'miripiruni/vim-better-css-indent'
 
 " JavaScript
-VAMActivate vim-javascript
-VAMActivate github:walm/jshint.vim 
-VAMActivate github:itspriddle/vim-jquery
+Plug 'vim-scripts/vim-javascript'
+Plug 'walm/jshint.vim'
+Plug 'itspriddle/vim-jquery'
 " JSON
-VAMActivate github:leshill/vim-json 
+Plug 'leshill/vim-json'
 
 " PHP
-VAMActivate github:2072/PHP-Indenting-for-VIm
-VAMActivate github:2072/vim-syntax-for-PHP
-VAMActivate github:stephpy/vim-php-cs-fixer
+Plug '2072/PHP-Indenting-for-VIm'
+Plug '2072/vim-syntax-for-PHP'
+Plug 'stephpy/vim-php-cs-fixer'
 " GO
-VAMActivate vim-go Go_Syntax
-" Rust
-VAMActivate rust
-VAMActivate github:racer-rust/vim-racer
-VAMActivate github:cespare/vim-toml
-" Other
-VAMActivate Markdown_syntax
-VAMActivate  github:stephpy/vim-yaml
-VAMActivate  github:vim-scripts/nginx.vim
-" OPTION 2: use call vam#ActivateAddons
-"call vam#ActivateAddons([PLUGIN_NAME], {})
-" use <c-x><c-p> to complete plugin names
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
-" OPTION 3: Create a file ~/.vim-scripts putting a PLUGIN_NAME into each line
-" See lazy loading plugins section in README.md for details
-"call vam#Scripts('~/.vim-scripts', {'tag_regex': '.*'})
+"Plug 'vim-scripts/Go_Syntax'
+" Rust
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
+Plug 'cespare/vim-toml'
+" Other
+Plug 'preservim/vim-markdown'
+Plug 'stephpy/vim-yaml'
+Plug 'vim-scripts/nginx.vim'
+Plug 'isobit/vim-caddyfile'
+
+call plug#end()
 
 " vim: ft=vim
