@@ -1,6 +1,9 @@
 .vim/Session.vim
 .vim/vim-addons/
+.vim/plugged/
 .vim/bundle/
 .vim/.NERDTreeBookmarks
+bak/*
+swp/*
 *.sw[opn]
 *.orig
