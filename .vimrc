@@ -5,7 +5,7 @@
 "=============================================================================
 so ~/.vimi/load_plugins
 " Interface
-    set guifont=Hack\ 11
+    set guifont=Hack\ 9
     " Character encoding used inside Vim
     " Only available when compiled with the +multi_byte feature
     set encoding=utf-8
@@ -388,7 +388,7 @@ so ~/.vimi/load_plugins
     " ,v
         " Open the .vimrc in a new tab
         nnoremap <leader>v :<C-u>tabedit $MYVIMRC<CR>
-        :cabbrev e NERDTreeClose<CR>:e!
+        " :cabbrev e NERDTreeClose<CR>:e!
 
     " <Space> = <PageDown>
         nnoremap <Space> <PageDown>
