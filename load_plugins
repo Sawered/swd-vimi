@@ -13,7 +13,8 @@ Plug 'preservim/nerdcommenter'
 Plug 'vim-syntastic/syntastic'
 Plug 'ctrlpvim/ctrlp.vim' 
 Plug 'mileszs/ack.vim'
-Plug 'vim-scripts/editorconfig-vim'
+"Plug 'vim-scripts/editorconfig-vim' " need C runtime
+Plug 'sgur/vim-editorconfig'
 Plug 'sickill/vim-pasta'
 "Plug 'vim-scripts/IndexedSearch'
 Plug 'vim-airline/vim-airline'
@@ -60,6 +61,7 @@ Plug 'preservim/vim-markdown'
 Plug 'stephpy/vim-yaml'
 Plug 'vim-scripts/nginx.vim'
 Plug 'isobit/vim-caddyfile'
+Plug 'nathangrigg/vim-beancount'
 
 call plug#end()
 
