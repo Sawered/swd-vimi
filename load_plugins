@@ -63,6 +63,10 @@ Plug 'vim-scripts/nginx.vim'
 Plug 'isobit/vim-caddyfile'
 Plug 'nathangrigg/vim-beancount'
 
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
 call plug#end()
 
 " vim: ft=vim
